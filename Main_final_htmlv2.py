@@ -31,7 +31,7 @@ fig_panarin = px.line(df, x='Сезон', y=['Голы', 'Ассисты'], titl
               labels={"value": 'Показатель в абсолютных величинах',
               "variable":"Показатели игрока"}
               )
-panarin_full = fig_panarin.to_html('Panarintotal.html', full_html=False)
+fig_panarin.to_html('Panarintotal.html')
 
 #По очкам в среднем
 data1 = {
@@ -44,7 +44,7 @@ df1 = pd.DataFrame(data1)
 
 # Строим график для среднего количества очков за игру
 fig_panarinp = px.line(df1, x='Сезон', y='Среднее количество очков за игру', title='Среднее количество очков за игру за последние 5 сезонов')
-panarin_avg = fig_panarinp.to_html('Panarinaverage.html', full_html=False)
+fig_panarinp.to_html('Panarinaverage.html')
 
 #Адам Фокс (защитник, второй по результативности в текущем сезоне)
 data = {
