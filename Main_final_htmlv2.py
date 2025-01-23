@@ -31,9 +31,6 @@ fig_panarin = px.line(df, x='Сезон', y=['Голы', 'Ассисты'], titl
               labels={"value": 'Показатель в абсолютных величинах',
               "variable":"Показатели игрока"}
               )
-#Создаем специальную папку, куда будем складывать графики, выгруженные в формате png.
-
-
 panarin_full = fig_panarin.to_html(full_html=False)
 
 #По очкам в среднем
@@ -198,35 +195,35 @@ photo = requests.get('https://a.espncdn.com/combiner/i?img=/i/headshots/nhl/play
 
 #Если запрос успешный, то записываем содержимое в png
 if photo.status_code == 200:
-    with open('images/Panarin.png','wb') as f:
+    with open('Panarin.png','wb') as f:
         shutil.copyfileobj(photo.raw, f)
 
 photo1 = requests.get('https://a.espncdn.com/combiner/i?img=/i/headshots/nhl/players/full/4197146.png&w=350&h=254', stream=True)
 if photo1.status_code == 200:
-    with open('images/Fox.png','wb') as f:
+    with open('Fox.png','wb') as f:
         shutil.copyfileobj(photo1.raw, f)
 
 photo2 = requests.get('https://a.espncdn.com/combiner/i?img=/i/headshots/nhl/players/full/2563036.png&w=350&h=254', stream=True)
 if photo2.status_code == 200:
-    with open('images/Trochek.png','wb') as f:
+    with open('Trochek.png','wb') as f:
         shutil.copyfileobj(photo2.raw, f)
 
 photo3 = requests.get('https://a.espncdn.com/combiner/i?img=/i/headshots/nhl/players/full/2562637.png&w=350&h=254',
                           stream=True)
 if photo3.status_code == 200:
-    with open('images/Ziba.png', 'wb') as f:
+    with open('Ziba.png', 'wb') as f:
         shutil.copyfileobj(photo3.raw, f)
 
 photo4 = requests.get('https://a.espncdn.com/combiner/i?img=/i/headshots/nhl/players/full/4697382.png&w=350&h=254',
                           stream=True)
 if photo4.status_code == 200:
-    with open('images/Lafi.png', 'wb') as f:
+    with open('Lafi.png', 'wb') as f:
         shutil.copyfileobj(photo4.raw, f)
 
 photo3 = requests.get('https://a.espncdn.com/combiner/i?img=/i/headshots/nhl/players/full/4697468.png&w=350&h=254',
                           stream=True)
 if photo3.status_code == 200:
-    with open('images/Cuylle.png', 'wb') as f:
+    with open('Cuylle.png', 'wb') as f:
         shutil.copyfileobj(photo3.raw, f)
 
 
@@ -258,7 +255,8 @@ def wouldscore(matches, label_f, coefficient1, coefficient2, coefficient3):
 #Пишем функцию для возвращения игрока к главному меню
 def get_back(root):
     root.focus_set()
-
+    
+#Пишем функцию, которая будет создавать окна с графиками в html
 def open_graph(html_file):
     webview.create_window("Plotly Graph", html_file)
     webview.start()
